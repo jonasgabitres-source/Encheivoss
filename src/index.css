@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="azul-petroleo"] {
+  --bg-canvas: #F5F8FA;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #EBF1F5;
+  --border-subtle: #D5E2EC;
+  --text-primary: #0F2330;
+  --text-secondary: #3E586B;
+  --text-muted: #647F94;
+  --accent-primary: #0E5A7A;
+  --accent-hover: #0A4660;
+  --accent-soft: #E0F0F7;
+  --accent-text: #093E56;
+  --sidebar-bg: #0D2D3E;
+  --sidebar-text: #E6F1F7;
+  --sidebar-muted: #93B5C8;
+  --sidebar-active: #164863;
+}
+
+[data-theme="azul-claro"] {
+  --bg-canvas: #F4F8FD;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #E8F1FC;
+  --border-subtle: #CFE0F5;
+  --text-primary: #0F2540;
+  --text-secondary: #3B597D;
+  --text-muted: #6382A6;
+  --accent-primary: #1D63B8;
+  --accent-hover: #154D91;
+  --accent-soft: #E1EEFC;
+  --accent-text: #12437D;
+  --sidebar-bg: #102C4E;
+  --sidebar-text: #EBF3FC;
+  --sidebar-muted: #9AB7DB;
+  --sidebar-active: #1C4578;
+}
+
+[data-theme="verde-suave"] {
+  --bg-canvas: #F4F9F7;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #E7F3EE;
+  --border-subtle: #CCE3DA;
+  --text-primary: #112A22;
+  --text-secondary: #385E51;
+  --text-muted: #5F8578;
+  --accent-primary: #176B52;
+  --accent-hover: #11523E;
+  --accent-soft: #DFF2EB;
+  --accent-text: #0E4534;
+  --sidebar-bg: #113328;
+  --sidebar-text: #E8F5F0;
+  --sidebar-muted: #95BDB0;
+  --sidebar-active: #1C4F3E;
+}
+
+[data-theme="cinza-azul"] {
+  --bg-canvas: #F6F7F9;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #ECEFF4;
+  --border-subtle: #D5DCE6;
+  --text-primary: #182230;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --accent-primary: #334E68;
+  --accent-hover: #243B53;
+  --accent-soft: #E4E9F0;
+  --accent-text: #1F3247;
+  --sidebar-bg: #1E293B;
+  --sidebar-text: #F1F5F9;
+  --sidebar-muted: #94A3B8;
+  --sidebar-active: #334155;
+}
+
+body {
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Sistema EncheiVos — Gestão de Cursos Bíblicos",
+  "description": "Sistema web responsivo para gestão de cursos bíblicos, pessoas, igrejas, turmas, chamadas de cursistas e servos, formação, certificados em PDF e finanças da Missão EncheiVos – Três Lagoas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,114 @@
+{
+  "entities": {
+    "WorkspaceSnapshot": {
+      "title": "WorkspaceSnapshot",
+      "description": "Estado consolidado do Sistema EncheiVos sincronizado por usuário/organização autenticada",
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "type": "string",
+          "description": "UID do usuário autenticado proprietário do snapshot",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "organizationName": {
+          "type": "string",
+          "description": "Nome da organização (Missão EncheiVos – Três Lagoas)",
+          "maxLength": 200
+        },
+        "payloadJson": {
+          "type": "string",
+          "description": "Estado operacional serializado ou resumo de sincronização",
+          "maxLength": 900000
+        },
+        "version": {
+          "type": "number",
+          "description": "Versão incremental do estado"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp de criação no servidor"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp de atualização no servidor"
+        }
+      },
+      "required": ["ownerId", "organizationName", "payloadJson", "version", "createdAt", "updatedAt"]
+    },
+    "UserPreference": {
+      "title": "UserPreference",
+      "description": "Preferências individuais de tema e perfil ativo do usuário",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "UID do usuário autenticado",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "theme": {
+          "type": "string",
+          "description": "Tema visual escolhido pelo usuário",
+          "enum": ["azul-claro", "verde-suave", "azul-petroleo", "cinza-azul"],
+          "maxLength": 40
+        },
+        "activePersonId": {
+          "type": "string",
+          "description": "ID da pessoa vinculada na sessão",
+          "maxLength": 128
+        },
+        "rememberMe": {
+          "type": "boolean",
+          "description": "Opção Lembrar-me ativa"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["userId", "theme", "activePersonId", "rememberMe", "createdAt", "updatedAt"]
+    },
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Registro de administrador habilitado do sistema",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["userId", "email", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/workspaces/{workspaceId}": {
+      "schema": { "$ref": "WorkspaceSnapshot" },
+      "description": "Snapshots sincronizados do Sistema EncheiVos"
+    },
+    "/userPreferences/{userId}": {
+      "schema": { "$ref": "UserPreference" },
+      "description": "Preferências de tema e sessão por usuário"
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "AdminRecord" },
+      "description": "Administradores do sistema"
+    }
+  }
+}
